@@ -2,21 +2,23 @@ Es gibt ein neues Script für Ecowitt Stationsbetreiber, die nur einen freien Po
 
 Dabei wird in diesme Script streng darauf geachtet, die API-Anfrage so zu geschalten, das nicht jede Datenfütterung im Minutentakt zur jeweiligen API durchgelassen wird. Sondern der entsperechenden Vorgabe genüge getan wird.
 
-1. Dieses Script empfängt die Wetterdaten im folgenden Format:
-   archiv/live.csv                    -> Livedatei
-   archiv/YYYY-MM/YYYY-MM-DD.csv      -> Tagesdatei
-   archiv/YYYY-MM/YYYY-MM.csv         -> Monatsdatei
-   archiv/YYYY/YYYY.csv               -> Jahresdatei
+Dieses Script empfängt die Wetterdaten im folgenden Format:
+archiv/live.csv -> Livedatei
+archiv/YYYY-MM/YYYY-MM-DD.csv -> Tagesdatei
+archiv/YYYY-MM/YYYY-MM.csv -> Monatsdatei
+archiv/YYYY/YYYY.csv -> Jahresdatei
 
-2. Folgende Wetterdienste können mit diesem Script bedient werden:
-   WOW Metoffice UK
-   WOW Meteo BE
-   WeatherUndergroud
-   CWOP/NOAA
-   Wetternetzwerk.pro
-   Meteo-Services
-   Windy
-   PWSWeather
+Folgende Wetterdienste können mit diesem Script bedient werden:
+WOW Metoffice UK
+WOW Meteo BE
+WeatherUnderground
+CWOP/NOAA
+Wetternetzwerk.pro
+Meteo-Services
+Windy
+PWSWeather
 
 Alle oder auch einzelne Weiterleitungen können ein- oder auch abgeschaltet werden!
-Dieses Script wurde vor wetter-zerbst.org | info@wetter-zerbst.org programmiert.
+
+Zum PHP-Script: https://github.com/wetterzerbst/ecowitt
+Dieses Script wurde von wetter-zerbst.org | info@wetter-zerbst.org programmiert.
