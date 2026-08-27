@@ -1,4 +1,10 @@
-# Ecowitt Empfangshub & Verteilerskript
+# Ecowitt Empfangshub & Verteilerskript / Receiving Hub & Forwarding Script
+
+[DEUTSCH](#deutsch) | [ENGLISH](#english)
+
+---
+
+## DEUTSCH
 
 Ein zentrales PHP-Skript für Betreiber von Ecowitt-Wetterstationen. Es nimmt die Daten der Station auf dem eigenen Webspace entgegen, speichert sie lokal ab und leitet sie intelligent an verschiedene Wetterdienste weiter.
 
@@ -29,7 +35,9 @@ Die Weiterleitung kann für jeden Dienst einzeln in der Konfiguration ein- oder 
 **Entwickelt von:** [wetter-zerbst.org](https://wetter-zerbst.org) | info@wetter-zerbst.org  
 **Repository & Code:** [GitHub - wetterzerbst/ecowitt](https://github.com/wetterzerbst/ecowitt)
 
-# Ecowitt Receiving Hub & Forwarding Script
+---
+
+## ENGLISH
 
 A central PHP script for Ecowitt weather station operators. It receives weather data on your custom webspace, archives it locally, and intelligently forwards it to various third-party weather services.
 
