@@ -97,12 +97,12 @@ $forward_servers = [
     ],
     [
         "active"       => true,
-        "type"         => "windy", // true = aktiviert | false = deaktiviert
-        "url"          => "https://stations.windy.com/pws/update/",
-        "name"         => "Windy",
-        "api_key"      => "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", // Bitte API-Key eintragen
-        "station_id"   => X, // Bitte Station-ID eintragen (Nur eine Ziffer laut Reihenfolge)
-        "min_interval" => 300 // Intervall laut API-Vorgabe
+        "type"         => "windy",
+        "url"          => "https://stations.windy.com/api/v2/observation/update",
+        "name"         => "Windy (Stationsname)",
+        "station_id"   => "HIER_NEUE_V2_STATION_ID", // z.B. der alphanumerische String von Windy
+        "password"     => "HIER_NEUES_STATIONS_PASSWORT", // das neue Stations-Passwort
+        "min_interval" => 300
     ],
     [
         "active"       => true, // true = aktiviert | false = deaktiviert
@@ -345,42 +345,39 @@ if (isset($_POST["PASSKEY"]) && $_POST["PASSKEY"] == $md5hash) {
             curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 PHP-WeatherStation');
         }
 
-        elseif ($server['type'] === 'windy') {
+       elseif ($server['type'] === 'windy') {
             $dewC = null;
             if (isset($_POST['tempf']) && isset($_POST['humidity']) && (float)$_POST['humidity'] > 0) {
                 $tempC = ((float)$_POST['tempf'] - 32) * 5 / 9;
                 $rh = (float)$_POST['humidity'];
                 $a = 17.271; $b = 237.7;
                 $alpha = (($a * $tempC) / ($b + $tempC)) + log($rh / 100);
-                $dewC = round(($b * $alpha) / ($a - $alpha), 1);
+                $dewC = round(($b * $alpha) / ($a - $alpha), 2);
             }
 
-            $dateIso = isset($_POST['dateutc']) ? str_replace(' ', 'T', $_POST['dateutc']) . 'Z' : gmdate("Y-m-d\TH:i:s\Z");
-
-            $obs = [
-                'station'        => (int)$server['station_id'],
-                'dateutc'        => $dateIso,
+            // Basis-Parameter für Windy V2 API
+            $windyParams = [
+                'station'        => $server['station_id'],
+                'PASSWORD'       => $server['password'],
+                'ts'             => isset($_POST['dateutc']) ? strtotime($_POST['dateutc'] . " UTC") : time(),
                 'tempf'          => isset($_POST['tempf']) && $_POST['tempf'] !== '' ? (float)$_POST['tempf'] : null,
-                'humidity'       => isset($_POST['humidity']) && $_POST['humidity'] !== '' ? (int)$_POST['humidity'] : null,
+                'rh'             => isset($_POST['humidity']) && $_POST['humidity'] !== '' ? (int)$_POST['humidity'] : null,
                 'dewpoint'       => $dewC,
                 'baromin'        => isset($_POST['baromrelin']) && $_POST['baromrelin'] !== '' ? (float)$_POST['baromrelin'] : null,
                 'windspeedmph'   => isset($_POST['windspeedmph']) && $_POST['windspeedmph'] !== '' ? (float)$_POST['windspeedmph'] : null,
                 'windgustmph'    => isset($_POST['windgustmph']) && $_POST['windgustmph'] !== '' ? (float)$_POST['windgustmph'] : null,
                 'winddir'        => isset($_POST['winddir']) && $_POST['winddir'] !== '' ? (int)$_POST['winddir'] : null,
-                'hourlyrainin'   => isset($_POST['hourlyrainin']) && $_POST['hourlyrainin'] !== '' ? (float)$_POST['hourlyrainin'] : null,
+                'precip'         => isset($_POST['hourlyrainin']) && $_POST['hourlyrainin'] !== '' ? (float)$_POST['hourlyrainin'] : null,
                 'mprecip'        => isset($_POST['dailyrainin']) && $_POST['dailyrainin'] !== '' ? round((float)$_POST['dailyrainin'] * 25.4, 1) : null,
                 'solarradiation' => isset($_POST['solarradiation']) && $_POST['solarradiation'] !== '' ? (float)$_POST['solarradiation'] : null,
                 'uv'             => isset($_POST['uv']) && $_POST['uv'] !== '' ? (float)$_POST['uv'] : null
             ];
 
-            $obs = array_filter($obs, function($value) { return $value !== null; });
-            $payload = ['observations' => [$obs]];
-            $jsonPayload = json_encode($payload);
+            // Null-Werte herausfiltern, um saubere URLs zu erzeugen
+            $windyParams = array_filter($windyParams, function($value) { return $value !== null; });
 
-            curl_setopt($ch, CURLOPT_URL, $server['url'] . trim($server['api_key']));
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonPayload);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/json', 'Content-Length: ' . strlen($jsonPayload)]);
+            curl_setopt($ch, CURLOPT_URL, $server['url'] . "?" . http_build_query($windyParams));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         }
 
         elseif ($server['type'] === 'pwsweather') {
