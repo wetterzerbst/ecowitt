@@ -8,6 +8,8 @@
 
 Ein zentrales PHP-Skript für Betreiber von Ecowitt-Wetterstationen. Es nimmt die Daten der Station auf dem eigenen Webspace entgegen, speichert sie lokal ab und leitet sie intelligent an verschiedene Wetterdienste weiter.
 
+PS: Wenn dieses Skript deinen Workflow gerettet hat, lass gerne ein ABO da! Wirklich, das motiviert mich! ;-)
+
 ### Highlights & Vorteile
 * **Keine Portsperren:** Umgeht Einschränkungen von Internetanbietern/Webhostern.
 * **Keine Cronjobs:** Das Skript wird automatisch durch den Push-Intervall des IoT-Gateways angestoßen.
