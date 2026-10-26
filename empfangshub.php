@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('Europe/Berlin');
-// Empfangs- und Verteilerscript Version 4.0
+// Empfangs- und Verteilerscript Version 4.1
 // Wetternetzerk Zerbst (ZEWN)
 // wetter-zerbst.org | info@wetter-zerbst.org
 // ==========================================
@@ -9,7 +9,7 @@ date_default_timezone_set('Europe/Berlin');
 $mac = "XX:XX:XX:XX:XX:XX"; // MAC-Adresse der Wetterstation
 $md5hash = strtoupper(md5($mac));
 
-// Luftdruck-Offset zentral in hPa angeben (z.B. -0.9 für eine Absenkung um 0,9 hPa)
+// Luftdruck-Offset zentral in hPa angeben (z.B. -0.9 für eine Absenkung um 0,9 hPa oder 0.3 für eine Anhebung)
 $pressureOffsetHpa = -0.9;
 
 $base_dir = __DIR__ . "/archiv/";
@@ -109,7 +109,7 @@ $forward_servers = [
         "type"         => "pwsweather",
         "url"          => "https://pwsupdate.pwsweather.com/api/v1/submitwx",
         "name"         => "PWSWeather",
-        "station_id"   => "XXXXXXXX", // Bitte Staion-Kennung eintragen
+        "station_id"   => "XXXXXXXX", // Bitte Stations-Kennung eintragen
         "password"     => "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", // Bitte Passwort eintragen
         "min_interval" => 300 // Intervall laut API-Vorgabe
     ]
