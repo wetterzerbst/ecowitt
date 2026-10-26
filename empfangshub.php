@@ -48,17 +48,17 @@ $forward_servers = [
         "min_interval" => 600 // Intervall laut API-Vorgabe
     ],
     [
-        "active"       => true,
-        "type"         => "wunderground", // true = aktiviert | false = deaktiviert
+        "active"       => true, // true = aktiviert | false = deaktiviert
+        "type"         => "wunderground",
         "url"          => "http://weatherstation.wunderground.com/weatherstation/updateweatherstation.php",
         "name"         => "Weather Underground",
         "wu_id"        => "IZERBSXX", // Bitte ID eintragen
         "wu_key"       => "XXXXXXXX" // Bitte KEY eintragen
-        // Kein min_interval -> sendet ungebremst bei jedem IoT-Call (Rapid Fire)
+        // Kein min_interval -> sendet ungebremst bei jedem IoT-Call (Rapid Fire). WU erlaubt alle 15 Sekunden.
     ],
     [
-        "active"       => true,
-        "type"         => "cwop", // true = aktiviert | false = deaktiviert
+        "active"       => true, // true = aktiviert | false = deaktiviert
+        "type"         => "cwop",
         "url"          => "https://send.cwop.rest/",
         "name"         => "CWOP/NOAA",
         "call"         => "GWXXXX", // Bitte CWOP-ID eintragen
@@ -67,8 +67,8 @@ $forward_servers = [
         "min_interval" => 300 // Intervall laut API-Vorgabe
     ],
     [
-        "active"       => true,
-        "type"         => "meteo-services", // true = aktiviert | false = deaktiviert
+        "active"       => true, // true = aktiviert | false = deaktiviert
+        "type"         => "meteo-services",
         "url"          => "https://channel1.meteo-services.com/stations/index.php",
         "name"         => "Meteo-Services",
         "station_id"   => "WSXXXXXXXX", // Bitte ID eintragen
@@ -78,8 +78,8 @@ $forward_servers = [
         "min_interval" => 300 // Intervall laut API-Vorgabe
     ],
     [
-        "active"       => true,
-        "type"         => "meteo_be", // true = aktiviert | false = deaktiviert
+        "active"       => true, // true = aktiviert | false = deaktiviert
+        "type"         => "meteo_be",
         "url"          => "https://wow.meteo.be/api/v2/send/wow",
         "name"         => "Meteo_Belgium",
         "mo_id"          => "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // Bitte ID eintragen
@@ -87,8 +87,8 @@ $forward_servers = [
         "min_interval"   => 300 // Intervall laut API-Vorgabe
     ],
     [
-        "active"       => true,
-        "type"         => "metoffice", // true = aktiviert | false = deaktiviert
+        "active"       => true, // true = aktiviert | false = deaktiviert
+        "type"         => "metoffice",
         "url"            => "http://wow.metoffice.gov.uk/automaticreading",
         "name"           => "MetOffice UK",
         "mo_id"          => "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // Bitte ID eintragen
@@ -96,13 +96,13 @@ $forward_servers = [
         "min_interval"   => 300 // Intervall laut API-Vorgabe
     ],
     [
-        "active"       => true,
+        "active"       => true, // true = aktiviert | false = deaktiviert
         "type"         => "windy",
         "url"          => "https://stations.windy.com/api/v2/observation/update",
         "name"         => "Windy (Stationsname)",
         "station_id"   => "HIER_NEUE_V2_STATION_ID", // z.B. der alphanumerische String von Windy
         "password"     => "HIER_NEUES_STATIONS_PASSWORT", // das neue Stations-Passwort
-        "min_interval" => 300
+        "min_interval" => 300 // Intervall laut API-Vorgabe
     ],
     [
         "active"       => true, // true = aktiviert | false = deaktiviert
