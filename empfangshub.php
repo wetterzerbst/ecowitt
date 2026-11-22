@@ -39,6 +39,15 @@ function calculateET_Advanced($tempC, $solarradiation, $vpd, $windspeed) {
 // Konfiguration der Weiterleitungsserver (Offsets hier entfernt, da global geregelt!)
 $forward_servers = [
     [
+            "active"       => true,
+            "type"         => "wunderground",
+            "url"          => "https://api.skyvex.org/weatherstation/updateweatherstation.php",
+            "name"         => "Skyvex (Station)",
+            "wu_id"        => "dh4Hg8",
+            "wu_key"       => "frJLf56",
+            "min_interval" => 60
+    ],
+    [
         "active"       => true, // true = aktiviert | false = deaktiviert
         "type"         => "wunderground",
         "url"          => "http://api.wetternetzwerk.pro/weatherstation/updateweatherstation.php",
