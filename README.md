@@ -32,6 +32,7 @@ Die Weiterleitung kann für jeden Dienst einzeln in der Konfiguration ein- oder 
 * MetOffice UK (WOW)
 * Windy
 * PWSWeather
+* SkyVex
 
 **Entwickelt von:** [wetter-zerbst.org](https://wetter-zerbst.org) | info@wetter-zerbst.org  
 **Repository & Code:** [GitHub - wetterzerbst/ecowitt](https://github.com/wetterzerbst/ecowitt)
@@ -64,6 +65,7 @@ Forwarding can be individually enabled or disabled per service in the script con
 * MetOffice UK (WOW)
 * Windy
 * PWSWeather
+* SkyVex
 
 **Developed by:** [wetter-zerbst.org](https://wetter-zerbst.org) | info@wetter-zerbst.org  
 **Repository & Code:** [GitHub - wetterzerbst/ecowitt](https://github.com/wetterzerbst/ecowitt)
@@ -96,6 +98,7 @@ Le transfert peut être activé ou désactivé individuellement pour chaque serv
 * MetOffice UK (WOW)
 * Windy
 * PWSWeather
+* SkyVex
 
 **Développé par:** [wetter-zerbst.org](https://wetter-zerbst.org) | info@wetter-zerbst.org  
 **Dépôt et Code:** [GitHub - wetterzerbst/ecowitt](https://github.com/wetterzerbst/ecowitt)
@@ -128,6 +131,7 @@ Le transfert peut être activé ou désactivé individuellement pour chaque serv
 * MetOffice UK (WOW)
 * Windy
 * PWSWeather
+* SkyVex
 
 **开发者:** [wetter-zerbst.org](https://wetter-zerbst.org) | info@wetter-zerbst.org  
 **代码仓库:** [GitHub - wetterzerbst/ecowitt](https://github.com/wetterzerbst/ecowitt)
@@ -160,6 +164,7 @@ Le transfert peut être activé ou désactivé individuellement pour chaque serv
 * MetOffice UK (WOW)
 * Windy
 * PWSWeather
+* SkyVex
 
 **Разработчик:** [wetter-zerbst.org](https://wetter-zerbst.org) | info@wetter-zerbst.org  
 **Репозиторий и код:** [GitHub - wetterzerbst/ecowitt](https://github.com/wetterzerbst/ecowitt)
