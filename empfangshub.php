@@ -1,6 +1,6 @@
 <?php
 date_default_timezone_set('Europe/Berlin');
-// Empfangs- und Verteilerscript Version 4.1
+// Empfangs- und Verteilerscript Version 4.2
 // Wetternetzerk Zerbst (ZEWN)
 // wetter-zerbst.org | info@wetter-zerbst.org
 // ==========================================
